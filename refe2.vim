@@ -1,3 +1,7 @@
+"
+" some codes are from refe.vim:
+"   http://rails2u.com/projects/refe.vim/
+"
 if exists("g:loaded_refe2")
   finish
 endif
@@ -10,7 +14,7 @@ if !has('ruby')
   finish
 endif
 
-let g:bitclust_path="/Users/moto/src/ruby/ruby-refm-1.9.0-dynamic/bitclust"
+let s:bitclust_path="/Users/moto/src/ruby/ruby-refm-1.9.0-dynamic/bitclust"
 
 function! s:Refe2Clear()
   "call s:ErrorMsg('call Refe2Clear')
@@ -19,12 +23,11 @@ function! s:Refe2Clear()
 endfunction
 
 
-let g:Refe2BufNo = -1
+let s:Refe2BufNo = -1
 function! s:Refe2ViewBufShow()
-  "if g:Refe2BufNo == -1 || g:Refe2BufNo != bufnr('%')
-  if g:Refe2BufNo == -1
+  if s:Refe2BufNo == -1 || s:Refe2BufNo != bufnr('%')
     exec 'to sp' . '[Refe2]'
-    let g:Refe2BufNo = bufnr('%')
+    let s:Refe2BufNo = bufnr('%')
   end
 
   setlocal nomodifiable
@@ -42,7 +45,7 @@ endfunction
 
 function! s:RubyRefe2(args)
   ruby << EOR
-  bitclust_path = VIM::evaluate("g:bitclust_path")
+  bitclust_path = VIM::evaluate("s:bitclust_path")
   db_path       = bitclust_path + '/../db-1_9_0'
   args          = ['-d', db_path, VIM::evaluate("a:args")]
   $LOAD_PATH << bitclust_path + '/lib'
@@ -80,4 +83,5 @@ function! Refe2(args)
   setlocal nomodifiable
 endfunction
 
-nnoremap K :<C-u>call Refe2(expand('<cword>'))<Return>
+"nnoremap K :<C-u>call Refe2(expand('<cword>'))<Return>
+nnoremap K :<C-u>call Refe2(expand('<cWORD>'))<Return>

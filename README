@@ -6,4 +6,7 @@ download a copy of reference manual package, and install it.
 
 == INSTALL ==
 1. edit refe2.vim to set paths.
-1. copy refe2.vim into ~/.vim/ftplugin/ruby/ dir.
+2. copy refe2.vim into ~/.vim/ftplugin/ruby/ dir.
+
+== LICENSE ==
+MIT.
