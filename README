@@ -1,0 +1,12 @@
+quick lookup the Ruby reference manual.
+
+== Requirement ==
+download a copy of reference manual package, and install it.
+  http://doc.loveruby.net/
+
+== INSTALL ==
+1. edit refe2.vim to set paths.
+2. copy refe2.vim into ~/.vim/ftplugin/ruby/ dir.
+
+== LICENSE ==
+MIT.
