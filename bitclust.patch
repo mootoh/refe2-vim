@@ -1,0 +1,27 @@
+diff -r -u bitclust.orig/bin/refe.rb bitclust/bin/refe.rb
+--- bitclust.orig/bin/refe.rb   2007-12-25 20:49:13.000000000 +0900
++++ bitclust/bin/refe.rb        2008-06-15 11:52:02.000000000 +0900
+@@ -11,7 +11,7 @@
+ end
+ 
+ def _main
+-  refe = BitClust::Searcher.new
++  refe = BitClust::Searcher.new File.basename($0, '.*')
+   refe.parse ARGV
+   refe.exec nil, ARGV
+ rescue OptionParser::ParseError => err
+diff -r -u bitclust.orig/lib/bitclust/searcher.rb bitclust/lib/bitclust/searcher.rb
+--- bitclust.orig/lib/bitclust/searcher.rb      2007-12-25 20:49:14.000000000 +0900
++++ bitclust/lib/bitclust/searcher.rb   2008-06-13 13:31:34.000000000 +0900
+@@ -22,8 +22,8 @@
+ 
+     include NameUtils
+ 
+-    def initialize
+-      cmd = File.basename($0, '.*')
++    def initialize(cmd)
++      #cmd = File.basename($0, '.*')
+       @dblocation = nil
+       @name = (/\Abitclust/ =~ cmd ? 'bitclust search' : 'refe')
+       @describe_all = false
+
