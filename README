@@ -1,12 +1,22 @@
 quick lookup the Ruby reference manual.
 
-== Requirement ==
-download a copy of reference manual package, and install it.
-  http://doc.loveruby.net/
+== REQUIREMENT ==
+- Ruby Reference Manual (http://doc.loveruby.net/)
+- Vim is compiled with Ruby (configured with --enable-rubyinterp)
 
 == INSTALL ==
-1. edit refe2.vim to set paths.
-2. copy refe2.vim into ~/.vim/ftplugin/ruby/ dir.
+1. prepare the reference manual:
+
+  - download a copy of reference manual package.
+  - apply bitclust.patch in the top directory of unpacked manual:
+      % cd ruby-refm-1.9.0-dynamic
+      % patch -p0 < /tmp/refe2-vim/bitclust.patch
+ 
+2. edit refe2.vim to set the bitclust path.
+3. copy refe2.vim into ~/.vim/ftplugin/ruby/ directory.
+
+== USAGE==
+In editting a Ruby file, press "K" on the word to lookup its reference manual.
 
 == LICENSE ==
 MIT.

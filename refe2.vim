@@ -1,5 +1,5 @@
 "
-" some codes are from refe.vim:
+" some codes are from 'refe.vim':
 "   http://rails2u.com/projects/refe.vim/
 "
 if exists("g:loaded_refe2")
